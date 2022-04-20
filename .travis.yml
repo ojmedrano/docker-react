@@ -1,0 +1,8 @@
+language: generic
+sudo: require
+services:
+  - docker
+before_install:
+  - docker build -t ojmedrano/docker-react -f Dockerfile.dev .
+script:
+  - docker run -e CI=true ojmedrano/docker-react npm run test
